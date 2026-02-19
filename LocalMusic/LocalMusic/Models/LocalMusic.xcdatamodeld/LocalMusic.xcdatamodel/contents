@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0"
+       lastSavedToolsVersion="22225" systemVersion="24A335"
+       minimumToolsVersion="Automatic" sourceLanguage="Swift"
+       usedWithSwiftData="NO" userDefinedModelVersionIdentifier="">
+    <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String" defaultValueString="Unknown Title"/>
+        <attribute name="artist" attributeType="String" defaultValueString="Unknown Artist"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="artworkData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="fileName" attributeType="String" defaultValueString=""/>
+        <attribute name="dateAdded" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="playlistItems" optional="YES" toMany="YES" deletionRule="Cascade"
+                      destinationEntity="PlaylistItem" inverseName="song" inverseEntity="PlaylistItem"/>
+    </entity>
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString="My Playlist"/>
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade"
+                      destinationEntity="PlaylistItem" inverseName="playlist" inverseEntity="PlaylistItem"/>
+    </entity>
+    <entity name="PlaylistItem" representedClassName="PlaylistItem" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="orderIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="song" optional="YES" maxCount="1" deletionRule="Nullify"
+                      destinationEntity="Song" inverseName="playlistItems" inverseEntity="Song"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify"
+                      destinationEntity="Playlist" inverseName="items" inverseEntity="Playlist"/>
+    </entity>
+</model>

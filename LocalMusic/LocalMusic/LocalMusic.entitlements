@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Background audio is handled via UIBackgroundModes in Info.plist.
+         Add additional entitlements here if needed (e.g., App Groups for
+         sharing data with a widget). -->
+</dict>
+</plist>
